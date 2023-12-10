@@ -45,7 +45,60 @@ app.get('/productos',(req,res)=>{
 
     `)
 })
+app.get('/integrantes', (req, res) => {
+    const estudiantes = [
+        {
+            "nombre": "Martin",
+            "apellido": "Jimenez",
+            "edad": 20
+        },
+        {
+            "nombre": "Gilmar",
+            "apellido": "Morales",
+            "edad": 20
+        },
+        {
+            "nombre": "Ismael",
+            "apellido": "Novillo",
+            "edad": 20
+        },
+        {
+            "nombre": "Cristian",
+            "apellido": "Paredes",
+            "edad": 21
+        },
+        {
+            "nombre": "Cristian",
+            "apellido": "Simba",
+            "edad": 20
+        },
+        {
+            "nombre": "Erick",
+            "apellido": "Ruiz",
+            "edad": 20
+        },
+        {
+            "nombre": "Paul",
+            "apellido": "Hidalgo",
+            "edad": 20
+        }
+    ];
 
+    let estudiantesHTML = '<h1>Lista de Integrantes</h1><p>Estos son los integrantes registrados:</p><ul>';
+
+    estudiantes.forEach(estudiante => {
+        estudiantesHTML += `
+            <li>
+                Nombre: ${estudiante.nombre} ${estudiante.apellido} <br>
+                Edad: ${estudiante.edad} años
+            </li>
+        `;
+    });
+
+    estudiantesHTML += '</ul>';
+
+    res.send(estudiantesHTML);
+});
 
 
 
